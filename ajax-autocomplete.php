@@ -37,9 +37,7 @@ function activate() {
 // Enqueue js, css
 add_action('wp_enqueue_scripts', 'mysite_js');
 function mysite_js() {
-	$wp_scripts = wp_scripts();
-	wp_register_style('mysitecss', plugins_url('/assets/css/frontend.css', __FILE__));
-	wp_enqueue_style('mysitecss' );	
+	$wp_scripts = wp_scripts();	
 	wp_enqueue_style('jquery_ui_css','http://ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-core']->ver . '/themes/flick/jquery-ui.css');
 	wp_enqueue_script('mysitejs', plugins_url('/assets/js/frontend.js', __FILE__), array('jquery', 'jquery-ui-core', 'jquery-ui-autocomplete'));
 	wp_localize_script('mysitejs', 'ajax_object', array('ajax_url' => admin_url( 'admin-ajax.php')));
